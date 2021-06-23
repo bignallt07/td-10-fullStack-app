@@ -1,4 +1,4 @@
-# td10-Full-Stack-Database-App
+# td-10-fullStack-app
  Full stack app with React
 
 ## Explanation of the project
