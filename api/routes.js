@@ -62,7 +62,7 @@ router.post("/users", asyncHandler( async (req, res) => {
     try {
         await User.create(req.body);
         res.location('/');   // How do I test this?
-        res.status(201).end();
+        res.status(201).end();  
     } catch (error) {
         // Check for Sequelize Error 
         if (error.name === "SequelizeValidationError" || error.name === "SequelizeUniqueConstraintError") {
@@ -173,7 +173,7 @@ router.put("/courses/:id", authenticateUser, asyncHandler( async (req, res) => {
                 await record.update(req.body, {where: {id: req.params.id}});
                 res.status(204).end();
             } else {
-                res.status(403).end();
+                res.status(403).end(); 
             }
         } catch (error) {
             console.log("Error: ", error.name);

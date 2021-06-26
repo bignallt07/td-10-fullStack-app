@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 export default function UpdateCourse(props) {
 
@@ -36,10 +36,10 @@ export default function UpdateCourse(props) {
                 } else if (data && user !== author) {
                     history.push("/forbidden");
                 } else {
-                    history.push("/notfound");
+                    history.push("/error");
                 } 
             }).catch(err => {
-                history.push("/error");
+                history.push("/notfound");
             })
     }, [id, history, authUser]);
 
@@ -91,6 +91,10 @@ export default function UpdateCourse(props) {
             }) 
     }
 
+    function cancel() {
+        this.props.history.push(`/courses/${id}`);
+    }
+
     return (
         <main>
             <div className="wrap">
@@ -115,7 +119,8 @@ export default function UpdateCourse(props) {
                             <textarea id="materialsNeeded" name="materialsNeeded" value={materialsNeeded} onChange={handleChange}></textarea>
                         </div>
                     </div>
-                    <button className="button" type="submit">Update Course</button><NavLink to="/" className="button button-secondary">Cancel</NavLink>
+                    <button className="button" type="submit">Update Course</button>
+                    <button className="button button-secondary" onSubmit={cancel}>Cancel</button>
                 </form>
             </div>
         </main>
