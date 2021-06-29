@@ -152,7 +152,7 @@ router.post("/courses", authenticateUser, asyncHandler( async (req, res) => {
             }
         } 
     } else {
-        console.log("Not Authenticated")
+        console.log("Not Authenticated");
     } 
 }));
 

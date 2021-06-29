@@ -36,8 +36,7 @@ export default function UserSignIn(props) {
         const {context} = props;
 
         const {from} = props.location.state || {from: {pathname: '/'}};
-        console.log(props.location.state);
-        
+                
         // Call Sign in from context actions
         context.actions.signIn(emailAddress, password)
             .then(user => {
